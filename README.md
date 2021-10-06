@@ -1,11 +1,11 @@
 # Multi-Container Deployments to AWS
 The workflow for a multi-container deployment can be described as follows:
 
-!(./workflow.png)
+![Diagram of the workflow](./img/workflow.png)
 
 The setup of the application used for this course can be seen below:
 
-!(./setup.png)
+![Architechture diagram, kinda](./img/setup.png)
 
 ## File setup
 ### Nginx setup
