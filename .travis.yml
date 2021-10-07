@@ -1,0 +1,25 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  # Build dev image
+  - docker build -t matthewjhcarr/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+  # Run tests on dev image
+  - docker run CI=true matthewjhcarr/react-test yarn test -- --coverage
+
+after_success:
+  # Build prod images
+  - docker build -t matthewjhcarr/multi-client ./client
+  - docker build -t matthewjhcarr/multi-nginx ./nginx
+  - docker build -t matthewjhcarr/multi-server ./server
+  - docker build -t matthewjhcarr/multi-worker ./worker
+  # Login to docker CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  # Push prod images to docker hub
+  - docker push matthewjhcarr/multi-client
+  - docker push matthewjhcarr/multi-nginx
+  - docker push matthewjhcarr/multi-server
+  - docker push matthewjhcarr/multi-worker
