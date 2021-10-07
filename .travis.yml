@@ -4,11 +4,11 @@ services:
 
 before_install:
   # Build dev image
-  - docker build -t matthewjhcarr/reacttest -f ./client/Dockerfile.dev ./client
+  - docker build -t matthewjhcarr/react-test -f ./client/Dockerfile.dev ./client
 
 script:
   # Run tests on dev image
-  - docker run CI=true matthewjhcarr/react-test yarn test
+  - docker run -e CI=true matthewjhcarr/react-test yarn test
 
 after_success:
   # Build prod images
