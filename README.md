@@ -1,4 +1,6 @@
 # Multi-Container Deployments to AWS
+This project is one part of a longer udemy course, Docker and Kubernetes. The rest of the course files are available [here](https://github.com/matthewjhcarr/udemy-doku). I'm assuming the person reading this is me, so you should have no issue with it being a private repo. If you're not me, then go buy the course!
+
 The workflow for a multi-container deployment can be described as follows:
 
 ![Diagram of the workflow](./img/workflow.png)
@@ -8,36 +10,7 @@ The setup of the application used for this course can be seen below:
 ![Architechture diagram, kinda](./img/setup.png)
 
 ## File setup
-### Nginx setup
-#### Config file
-
-#### Dockerfile
-
-### React server setup
-#### Fib component
-
-#### OtherPage
-
-#### App.js
-
-### Express server setup
-#### package.json
-
-#### keys.js
-
-#### index.js
-
-#### Dockerfile
-
-### Worker setup
-#### package.json
-
-#### keys.js
-
-#### index.js
-
-#### Dockerfile
-
+The set up for the files is more or less explained by reading the code and the accompanying comments. I won't bother going over that here.
 ## Travis config
 The config file will have the following high-level steps:
 
