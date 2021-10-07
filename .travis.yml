@@ -8,7 +8,7 @@ before_install:
 
 script:
   # Run tests on dev image
-  - docker run CI=true matthewjhcarr/react-test yarn test -- --coverage
+  - docker run CI=true matthewjhcarr/react-test yarn test
 
 after_success:
   # Build prod images
