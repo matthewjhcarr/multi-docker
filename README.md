@@ -147,7 +147,7 @@ Unlike a regular `docker-compose.yml` file, here we are explicitly defining the 
 For example, the `server` block has a `hostname` of `api`. This container would __not__ be named `server`, but would __instead__ be named `api`.
 
 `mem_limit`:  
-EBS doesn't like it if there are no memory limits for deployed containers, so we use the `mem_limit` option here. In general, you should do some reasearch based on the kind of image you are building to get an idea of how much memory it will need. However, we have just given 128MB to each container because this is just for practice. This is by no means ideal.
+EBS doesn't like it if there are no memory limits for deployed containers, so we use the `mem_limit` option here. In general, you should do some reasearch based on the kind of image you are building to get an idea of how much memory it will need. However, we have just given 128MB to each container because this is just for practice. This is by no means ideal. __This actually doesn't seem to be necessary any more, but it's still good to have mentioned it in these notes__.
 
 ## Production Setup
 We're changing things around for the production and no longer using our own postgres or redis containers as our databases. Instead, we'll use Managed Data Service Providers: _AWS ElastiCache and AWS Relational Database Service (RDS)_.
