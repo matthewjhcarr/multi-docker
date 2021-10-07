@@ -4,7 +4,7 @@ services:
 
 before_install:
   # Build dev image
-  - docker build -t matthewjhcarr/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t matthewjhcarr/reacttest -f ./client/Dockerfile.dev ./client
 
 script:
   # Run tests on dev image
