@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 export default () => {
   return (
     <>
-      I'm a dummy!
+      Dolkieeeee! Woohooooooo! 
       <Link to="/">Go home!</Link>
     </>
   )
