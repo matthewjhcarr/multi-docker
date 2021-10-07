@@ -110,14 +110,17 @@ services:
   client:
     image: 'matthewjhcarr/multi-client'
     hostname: 'client'
+    mem_limit: 128m
   nginx:
     image: 'matthewjhcarr/multi-nginx'
     hostname: 'nginx'
+    mem_limit: 128m
     ports:
       - '80:80'
   server:
     image: 'matthewjhcarr/multi-server'
     hostname: 'api'
+    mem_limit: 128m
     environment:
       - REDIS_HOST=$REDIS_HOST
       - REDIS_PORT=$REDIS_PORT
@@ -129,6 +132,7 @@ services:
   worker:
     image: 'matthewjhcarr/multi-worker'
     hostname: 'worker'
+    mem_limit: 128m
     environment:
       - REDIS_HOST=$REDIS_HOST
       - REDIS_PORT=$REDIS_PORT
@@ -141,6 +145,9 @@ This is the name of the image that you pushed your docker hub.
 `hostname`:  
 Unlike a regular `docker-compose.yml` file, here we are explicitly defining the name by which other containers may access this container. Previously, this was implicit in the definition, _i.e. if you had a block called 'client', the container would be named 'client'_, however now we must explicitly name the containers by using `hostname`.  
 For example, the `server` block has a `hostname` of `api`. This container would __not__ be named `server`, but would __instead__ be named `api`.
+
+`mem_limit`:  
+EBS doesn't like it if there are no memory limits for deployed containers, so we use the `mem_limit` option here. In general, you should do some reasearch based on the kind of image you are building to get an idea of how much memory it will need. However, we have just given 128MB to each container because this is just for practice. This is by no means ideal.
 
 ## Production Setup
 We're changing things around for the production and no longer using our own postgres or redis containers as our databases. Instead, we'll use Managed Data Service Providers: _AWS ElastiCache and AWS Relational Database Service (RDS)_.

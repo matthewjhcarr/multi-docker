@@ -3,14 +3,17 @@ services:
   client:
     image: 'matthewjhcarr/multi-client'
     hostname: 'client'
+    mem_limit: 128m
   nginx:
     image: 'matthewjhcarr/multi-nginx'
     hostname: 'nginx'
+    mem_limit: 128m
     ports:
       - '80:80'
   server:
     image: 'matthewjhcarr/multi-server'
     hostname: 'api'
+    mem_limit: 128m
     environment:
       - REDIS_HOST=$REDIS_HOST
       - REDIS_PORT=$REDIS_PORT
@@ -22,6 +25,7 @@ services:
   worker:
     image: 'matthewjhcarr/multi-worker'
     hostname: 'worker'
+    mem_limit: 128m
     environment:
       - REDIS_HOST=$REDIS_HOST
       - REDIS_PORT=$REDIS_PORT
